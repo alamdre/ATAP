@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!--link rel="stylesheet" type="text/css" href="css/index.css"-->
+
+        <!--/librari native droid-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" />
+        <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+        <link rel="stylesheet" href="vendor/wow/animate.css" />
+        <link rel="stylesheet" href="css/nativedroid2.css" />
+
+        <title>ATAP</title>
+    </head>
+    <body>
+        <!--/halaman depan yang tampil pertama-->
+        <div data-role="page" id="depan">
+        
+            <nd2-include data-src="examples/fragments/kiri1.html"></nd2-include>
+        
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#menu-kiri1" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'>ATAP</h1>
+            </div>
+        
+            <div role="main" class="ui-content" data-inset="false">
+                <img src="img/logo-telkom.jpg">
+                <br>
+                <a href="#" id="peta" class="ui-btn ui-btn-raised ui-mini clr-warning">Lihat Peta Plaza PT Telkom</a>
+                <h3><center>-[ TERIMA KASIH ]-<br>Anda Telah Melakukan<br>Antri Tanpa Antrian di Plaza Telkom</center></h3>
+        
+            </div>
+        
+        </div>
+        <!--/halaman depan yang tampil pertama-->
+        
+        <!--/halaman menampilkan peta lokasi layanan plaza telkom-->
+        <div data-role="page" id="peta-plaza">
+        
+            <nd2-include data-src="examples/fragments/kiri2.html"></nd2-include>
+        
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#menu-kiri2" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'>PETA LOKASI</h1>
+            </div>
+        
+            <div role="main" class="ui-content" data-inset="false">
+
+                <select id="mySelect" onchange="myFunction()" data-native-menu="false">
+                    <option value="">Pilih Lokasi Layanan</option>
+                    <option value="Plaza Telkom Jogja">Plaza Telkom Yogyakarta</option>
+                    <option value="Plaza Telkom Bantul">Plaza Telkom Bantul</option>
+                    <option value="Planza Telkom Sleman">Plaza Telkom Sleman</option>
+                </select>
+
+                <button id="daftar" class='ui-btn ui-btn-raised ui-mini clr-warning'>Daftar Antrain</button>
+
+                <div id="peta-kantor"></div>
+            </div>
+        
+        </div>
+        <!--/halaman menampilkan peta lokasi layanan plaza telkom-->
+
+        <!--/halaman menampilkan mendaftar antrian di plaza telkom-->
+        <div data-role="page" id="daftar-antrian">
+        
+            <nd2-include data-src="examples/fragments/kiri3.html"></nd2-include>
+        
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#menu-kiri3" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'>DAFTAR ANTRIAN</h1>
+            </div>
+        
+            <div role="main" class="ui-content" data-inset="false">
+                <div class="box">
+                
+                    <label for="no_antrian">Kode Booking Antrian:</label>
+                    <input type="text" id="no_antrian1" disabled="true">
+                    <input type="hidden" id="no_antrian">
+
+                    <label for="kantor">Lokasi Daftar:</label>
+                    <input type="text" id="kantor1" disabled="true">
+                    <input type="hidden" id="kantor">
+
+                    <label for="tanggal">Tanggal Daftar:</label>
+                    <input type="date" id="tanggal" data-clear-btn="true" placeholder="">
+                    <!--input type="hidden" id="tanggal"-->
+
+                    <label for="jam">Jam Daftar:</label>
+                    <input type="time" id="jam" data-clear-btn="true" placeholder="">
+                    <!--input type="hidden" id="jam"-->
+
+                    <label for="telpon">No Telpon:</label>
+                    <input type="number" id="telpon" value="" data-clear-btn="true" placeholder="Masukan nomor telpon" required="required">
+
+                    <label for="nama">Nama Pelanggan:</label>
+                    <input type="text" id="nama" value="" data-clear-btn="true" placeholder="Masukan nama pelanggan" required="required">
+
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" required>
+                            <legend>Pilihan Layanan</legend>
+                            <input type="radio" name="radio-choice-a" id="radio-choice-ab" value="cs" checked="checked">
+                            <label for="radio-choice-ab">CS</label>
+                            <input type="radio" name="radio-choice-a" id="radio-choice-bb" value="langganan">
+                            <label for="radio-choice-bb">Langganan</label>
+                            <input type="radio" name="radio-choice-a" id="radio-choice-cb" value="perbaikan">
+                            <label for="radio-choice-cb">Perbaikan</label>
+                            <input type="radio" name="radio-choice-a" id="radio-choice-db" value="indihome">
+                            <label for="radio-choice-db">IndiHome</label>
+                        </fieldset>
+
+                    <label for="catatan">Keterangan/Keluhan:</label>
+                    <textarea cols="40" rows="8" id="catatan" placeholder="Masukan Keterangan tambahan/keluhan" required></textarea>
+
+                <button id="simpan" onclick="submitClick()" class='ui-btn ui-btn-raised ui-mini ui-btn-inline clr-warning'>Simpan</button>
+                </div>
+
+            </div>
+        
+        </div>
+        <!--/halaman menampilkan mendaftar antrian di plaza telkom-->
+
+        <!--/halaman menampilkan antrian di plaza telkom-->
+        <div data-role="page" id="antrian-plaza">
+        
+            <nd2-include data-src="examples/fragments/kiri4.html"></nd2-include>
+        
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#menu-kiri4" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+                <a href="#" id="refresh" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='0.8s'>
+                    <i class="zmdi zmdi-refresh"></i>
+                </a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'>NOMOR ANTRIAN</h1>
+            </div>
+        
+            <div role="main" class="ui-content" data-inset="false">
+               
+                        <h1 class="nd2-display-2">
+                            <div id="counter"></div>
+                        </h1>
+
+                        <div class="box"> 
+                            <label for="no_antrian">Kode Booking Antrian:</label>
+                            <input type="text" id="no_antrian2">
+
+                            <label for="telpon">No Telpon:</label>
+                            <input type="text" id="telpon1">
+                        
+                            <label for="nama">Nama Pelanggan:</label>
+                            <input type="text" id="nama1">
+
+                            <label for="nama">Layanan Antrian:</label>
+                            <input type="text" id="layanan">
+                        </input>       
+            </input>
+        
+        </div>
+        <!--/halaman menampilkan antrian di plaza telkom-->
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <!--/librari native droid-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+        <script src="vendor/waves/waves.min.js"></script>
+        <script src="vendor/wow/wow.min.js"></script>
+        <script src="js/nativedroid2.js"></script>
+        <script src="nd2settings.js"></script>
+        <script src="js/petalokasi.js"></script>
+        <script>
+        function myFunction() {
+
+                var x = document.getElementById("mySelect").value;
+                //alert('Anda memilih layanan di '+ x);
+
+                document.getElementById("peta-kantor").innerHTML = "<input type='hidden' id='ktrtelkom' value='" + x + "'><br><iframe width='100%' height='400px' frameborder='0' style='border:0;margin: 0; padding: 0' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyC3dAdffxDmA6yKms0PmvEE6t2dvbxfWR8&q=" + x + "' allowfullscreen></iframe>";
+
+            }
+        </script>
+        <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+        <script type="text/javascript">
+            responsiveVoice.OnVoiceReady = function () {
+                console.log("speech time?");
+                responsiveVoice.speak(
+                    "TERIMA KASIH, Anda Telah Melakukan, Antri Tanpa Antrian di Plaza Telkom",
+                    "Indonesian Female",
+                    {
+                        pitch: 1,
+                        rate: 1,
+                        volume: 3
+                    }
+                );
+            };
+        </script>
+
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBacWttMb6kxY-7rUbsEYBmMMsyKuzo52o",
+    authDomain: "telkom-atap.firebaseapp.com",
+    databaseURL: "https://telkom-atap.firebaseio.com",
+    projectId: "telkom-atap",
+    storageBucket: "telkom-atap.appspot.com",
+    messagingSenderId: "352700043189"
+  };
+  firebase.initializeApp(config);
+</script>
+    </body>
+</html>
+    
