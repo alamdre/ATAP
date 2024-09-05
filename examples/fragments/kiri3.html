@@ -1,0 +1,31 @@
+<script>
+	    $("#lihat_antri3").on("click", function (e) {
+				e.preventDefault();
+				e.stopImmediatePropagation();
+
+				$("#no_antrian2").val(sessionStorage.getItem("no_antrian"));
+				$("#telpon1").val(sessionStorage.getItem("telpon"));
+				$("#nama1").val(sessionStorage.getItem("nama"));
+				$("#layanan").val(sessionStorage.getItem("layanan"));
+
+				document.getElementById("counter").innerHTML = "<center><img src='img/10.jpg' width='50%' height='50%'><br>dari 14</center >";
+				$.mobile.changePage("#antrian-plaza", { transition: "slide" });
+			});
+</script>
+			<!-- panel left -->
+			<div data-role="panel" id="menu-kiri3" data-display="overlay" data-position-fixed="true" >
+
+				<ul data-role="listview" data-inset="false">
+					<li data-role="list-divider">Antri Tanpa Antrian</li>
+				</ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Plaza Telkom</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="#depan" data-ajax='false' data-icon="false">Beranda</a></li>
+						<li><a id="lihat_antri3" data-ajax='false' data-icon="false">Lihat Antrian</a></li>
+						<li><a href="#bantuan" data-ajax='false' data-icon="false">Bantuan</a></li>
+					</ul>
+				</div>
+
+			</div>
+			<!-- /panel left -->

@@ -60,8 +60,8 @@
                 <img src="img/logo-telkom.jpg">
                 <br>
                 <a href="#" id="peta" class="ui-btn ui-btn-raised ui-mini clr-warning">Lihat Peta Plaza PT Telkom</a>
-                <h3><center>-[ TERIMA KASIH ]-<br>Anda Telah Melakukan<br>Antri Tanpa Antrian di Plaza Telkom</center></h3>
-        
+                <h3><center>-[SELAMAT DATANG DI ATAP]-
+
             </div>
         
         </div>
@@ -85,10 +85,11 @@
                     <option value="">Pilih Lokasi Layanan</option>
                     <option value="Plaza Telkom Jogja">Plaza Telkom Yogyakarta</option>
                     <option value="Plaza Telkom Bantul">Plaza Telkom Bantul</option>
-                    <option value="Planza Telkom Sleman">Plaza Telkom Sleman</option>
+                    <option value="Plaza Telkom Sleman">Plaza Telkom Sleman</option>
                 </select>
 
-                <button id="daftar" class='ui-btn ui-btn-raised ui-mini clr-warning'>Daftar Antrain</button>
+                <button id="pilih" class='ui-btn ui-btn-raised ui-mini clr-warning'>Pilih Layanan </button>
+           
 
                 <div id="peta-kantor"></div>
             </div>
@@ -96,19 +97,54 @@
         </div>
         <!--/halaman menampilkan peta lokasi layanan plaza telkom-->
 
+
+        <!--/halaman menampilkan mendaftar pilih layanan di plaza telkom-->
+        <div data-role="page" id="pilih-layanan">
+    
+                <nd2-include data-src="examples/fragments/kiri3.html"></nd2-include>
+                
+                <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                    <a href="#menu-kiri3" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
+                        <i class="zmdi zmdi-more-vert"></i>
+                    </a>
+                    <h1 class="wow fadeIn" data-wow-delay='0.4s'>Daftar Layanan</h1>
+                </div>
+
+                <div role="main" class="ui-content" data-inset="false">
+
+
+                    <select id="mySelect1" onchange="myFunction1()" data-native-menu="false">
+                        <option value="">Pilih Layanan</option>
+                        <option value="Langganan">Langganan</option>
+                        <option value="CS">CS</option>
+                        <option value="Pembayaran">Pembayaran</option>
+                        <option value="Keluhan">Keluhan</option>
+                    </select>
+
+
+                    <button id="daftar" class='ui-btn ui-btn-raised ui-mini clr-warning'>Daftar Antrain</button>
+
+                   
+                </div>
+        </div>
+
+        <!--/halaman menampilkan pilih layanan plaza telkom-->
+
+
         <!--/halaman menampilkan mendaftar antrian di plaza telkom-->
         <div data-role="page" id="daftar-antrian">
         
-            <nd2-include data-src="examples/fragments/kiri3.html"></nd2-include>
+            <nd2-include data-src="examples/fragments/kiri4.html"></nd2-include>
         
             <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
-                <a href="#menu-kiri3" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
+                <a href="#menu-kiri4" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
                     <i class="zmdi zmdi-more-vert"></i>
                 </a>
                 <h1 class="wow fadeIn" data-wow-delay='0.4s'>DAFTAR ANTRIAN</h1>
             </div>
         
-            <div role="main" class="ui-content" data-inset="false">
+            <div r
+            ole="main" class="ui-content" data-inset="false">
                 <div class="box">
                 
                     <label for="no_antrian">Kode Booking Antrian:</label>
@@ -133,22 +169,15 @@
                     <label for="nama">Nama Pelanggan:</label>
                     <input type="text" id="nama" value="" data-clear-btn="true" placeholder="Masukan nama pelanggan" required="required">
 
-                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" required>
-                            <legend>Pilihan Layanan</legend>
-                            <input type="radio" name="radio-choice-a" id="radio-choice-ab" value="cs" checked="checked">
-                            <label for="radio-choice-ab">CS</label>
-                            <input type="radio" name="radio-choice-a" id="radio-choice-bb" value="langganan">
-                            <label for="radio-choice-bb">Langganan</label>
-                            <input type="radio" name="radio-choice-a" id="radio-choice-cb" value="perbaikan">
-                            <label for="radio-choice-cb">Perbaikan</label>
-                            <input type="radio" name="radio-choice-a" id="radio-choice-db" value="indihome">
-                            <label for="radio-choice-db">IndiHome</label>
-                        </fieldset>
+                    <label for="layanan">Lokasi Daftar:</label>
+                    <input type="text" id="layanan1" disabled="true">
+                    <input type="hidden" id="Layanan">
+
 
                     <label for="catatan">Keterangan/Keluhan:</label>
                     <textarea cols="40" rows="8" id="catatan" placeholder="Masukan Keterangan tambahan/keluhan" required></textarea>
 
-                <button id="simpan" onclick="submitClick()" class='ui-btn ui-btn-raised ui-mini ui-btn-inline clr-warning'>Simpan</button>
+                <button id="simpan" onclick="submitClick()" class='ui-btn ui-btn-raised ui-mini ui-btn-inline clr-warning'>SIMPAN</button>
                 </div>
 
             </div>
@@ -159,10 +188,10 @@
         <!--/halaman menampilkan antrian di plaza telkom-->
         <div data-role="page" id="antrian-plaza">
         
-            <nd2-include data-src="examples/fragments/kiri4.html"></nd2-include>
+            <nd2-include data-src="examples/fragments/kiri5.html"></nd2-include>
         
             <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
-                <a href="#menu-kiri4" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
+                <a href="#menu-kiri5" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'>
                     <i class="zmdi zmdi-more-vert"></i>
                 </a>
                 <a href="#" id="refresh" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='0.8s'>
@@ -179,18 +208,26 @@
 
                         <div class="box"> 
                             <label for="no_antrian">Kode Booking Antrian:</label>
-                            <input type="text" id="no_antrian2">
+                            <input type="text" id="no_antrian2" disabled="true">
+                            <input type="hidden" id="no_antrian">
 
                             <label for="telpon">No Telpon:</label>
-                            <input type="text" id="telpon1">
+                            <input type="text" id="telpon1" disabled="true">
+                            <input type="hidden" id="telpon">
                         
                             <label for="nama">Nama Pelanggan:</label>
-                            <input type="text" id="nama1">
+                            <input type="text" id="nama1" disabled="true">
+                            <input type="hidden" id="nama">
 
-                            <label for="nama">Layanan Antrian:</label>
-                            <input type="text" id="layanan">
-                        </input>       
-            </input>
+                            <!-- <label for="layanan">Layanan Antrian:</label>
+                            <input type="text" id="layanan1" disabled="true">
+                            <input type="hidden" id="layanan"> -->
+
+                             </input> 
+                        </div>
+            </div>
+                        
+
         
         </div>
         <!--/halaman menampilkan antrian di plaza telkom-->
@@ -216,13 +253,20 @@
                 document.getElementById("peta-kantor").innerHTML = "<input type='hidden' id='ktrtelkom' value='" + x + "'><br><iframe width='100%' height='400px' frameborder='0' style='border:0;margin: 0; padding: 0' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyC3dAdffxDmA6yKms0PmvEE6t2dvbxfWR8&q=" + x + "' allowfullscreen></iframe>";
 
             }
+
+        function myFunction1() {
+
+                    var x1 = document.getElementById("mySelect1").value;
+                    //alert('Anda memilih layanan  '+ x1);
+                    $('#layanan1').val(x1);
+            }
         </script>
         <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
         <script type="text/javascript">
             responsiveVoice.OnVoiceReady = function () {
                 console.log("speech time?");
                 responsiveVoice.speak(
-                    "TERIMA KASIH, Anda Telah Melakukan, Antri Tanpa Antrian di Plaza Telkom",
+                    "SELAMAT DATANG DI ATAP ANTRI TANPA ANTRIAN PLAZA",
                     "Indonesian Female",
                     {
                         pitch: 1,
